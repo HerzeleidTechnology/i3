@@ -1,0 +1,173 @@
+#VARIABLES
+#		  RRGGBBAA
+set $transparent #00000000
+
+#SHORTCUTS
+set $mod Mod4
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+floating_modifier $mod
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym Ctrl+Shift+d kill
+bindsym $mod+d exec dmenu_run
+bindsym F12 exec scrot '/home/sysadam/Documents/.Documents/Screenshots/sysadam-%Y-%m-%d-%H_%M.jpg'
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+F1 exec --no-startup-id vivaldi
+bindsym XF86Explorer exec --no-startup-id nautilus
+bindsym $mod+F2 exec --no-startup-id wicd-gtk
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
+
+#WALLPAPER 
+exec feh --bg-scale "/home/sysadam/Documents/.Documents/Wallpapers/UEPmFjc.jpg"
+
+#I3 GAPS
+gaps inner 5 
+gaps outer 5 
+for_window [class="^.*"] border pixel 3
+for_window [title="supertuxkart"] floating disable
+for_window [title="wicd-gtk"] floating enable
+
+#color                  border  backgr. text    indicator
+client.focused          #cccccc #cccccc #cccccc #cccccc
+client.focused_inactive #131313 #131313 #888888 #131313
+client.unfocused        #000000 #000000 #000000 #000000
+client.urgent           #CC6666 #CC6666 #ffffff #CC6666
+
+#AUTOSTART
+exec --no-startup-id xset dpms 600
+exec --no-startup-id xautolock -time 10 -locker i3lock
+
+#I3 STATUS
+bar {
+        status_command i3status
+	i3bar_command i3bar
+        height 20
+        font pango:drift,tewi 8
+        tray_output none
+        position top
+        separator_symbol " "
+        colors {
+                background #474a53
+                separator  #001900
+                statusline #ffffff
+
+                focused_workspace  #474a53 #474a53 #ffffff
+                active_workspace   #29475f #29475f #999999
+                inactive_workspace #29475f #29475f #666666
+                urgent_workspace   #29475f #29475f #CC6666
+        }
+}
+
+
+#WORKSPACES
+# switch to workspace
+bindsym $mod+1 workspace x
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4 
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace ♪
+bindsym $mod+9 workspace >_
+bindsym $mod+0 workspace ⌨
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace x
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace ♪
+bindsym $mod+Shift+9 move container to workspace >_
+bindsym $mod+Shift+0 move container to workspace ⌨
+
+#TILING
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+oslash focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+KP_4 focus left
+bindsym $mod+KP_5 focus down
+bindsym $mod+KP_8 focus up
+bindsym $mod+KP_6 focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+oslash move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+KP_4 move left
+bindsym $mod+Shift+KP_5 move down
+bindsym $mod+Shift+KP_8 move up
+bindsym $mod+Shift+KP_6 move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Why the fuck you leaving nigger?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym oslash resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+
