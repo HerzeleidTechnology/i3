@@ -1,28 +1,22 @@
 #VARIABLES
-#		  RRGGBBAA
-set $transparent #00000000
+set $mod Mod4
+floating_modifier $mod
 
 #SHORTCUTS
-set $mod Mod4
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-floating_modifier $mod
+
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym Ctrl+Shift+d kill
 bindsym $mod+d exec dmenu_run
-bindsym F12 exec scrot '/home/sysadam/Documents/.Documents/Screenshots/sysadam-%Y-%m-%d-%H_%M.jpg'
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-bindsym $mod+F1 exec --no-startup-id vivaldi
-bindsym XF86Explorer exec --no-startup-id nautilus
-bindsym $mod+F2 exec --no-startup-id wicd-gtk
+bindsym F12 exec scrot '~/Dokumenter'
 bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
 
-#WALLPAPER 
-exec feh --bg-scale "/home/sysadam/Documents/.Documents/Wallpapers/UEPmFjc.jpg"
+#WALLPAPER
+exec --no-startup-id nitrogen
 
 #I3 GAPS
-gaps inner 5 
-gaps outer 5 
+gaps inner 5
+gaps outer 5
 for_window [class="^.*"] border pixel 3
 for_window [title="supertuxkart"] floating disable
 for_window [title="wicd-gtk"] floating enable
@@ -64,7 +58,7 @@ bar {
 bindsym $mod+1 workspace x
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4 
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -169,5 +163,3 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
-
