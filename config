@@ -47,7 +47,7 @@ bar {
 
                 focused_workspace  #474a53 #474a53 #ffffff
                 active_workspace   #29475f #29475f #999999
-                inactive_workspace #29475f #29475f #666666
+                inactive_workspace #474a53 #474a53 #666666
                 urgent_workspace   #29475f #29475f #CC6666
         }
 }
@@ -55,7 +55,7 @@ bar {
 
 #WORKSPACES
 # switch to workspace
-bindsym $mod+1 workspace x
+bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
@@ -67,7 +67,7 @@ bindsym $mod+9 workspace >_
 bindsym $mod+0 workspace ⌨
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace x
+bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
